@@ -20,6 +20,15 @@ gem 'uglifier', '>= 1.3.0'
 gem 'mongoid', '~> 6.2.1'
 gem 'bson_ext'
 
+gem "grape"
+gem "grape-active_model_serializers", "~> 1.5"
+gem "grape-swagger", "~> 0.26.1"
+gem "grape-swagger-rails", "~> 0.3.0"
+gem "grape_on_rails_routes", "~> 0.3.1"
+
+gem "kaminari", "~> 1.0", ">= 1.0.1"
+gem "kaminari-mongoid", "~> 0.1.0"
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
