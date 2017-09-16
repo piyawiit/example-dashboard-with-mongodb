@@ -27,7 +27,7 @@ module V1
         if user.save
           u_token = user.login!
 
-          serialization = UserSerializer.new(user, {show_token: true, token: u_token.token})
+          serialization = UserSerializer.new(user, show_token: true, token: u_token.token)
           render_success(serialization.as_json)
         else
           error = user.errors.full_messages.join(', ')
@@ -78,7 +78,7 @@ module V1
         authenticate!
         get_user(params[:id])
 
-        serialization = UserSerializer.new(@user, {show_token: false})
+        serialization = UserSerializer.new(@user, show_token: false)
         render_success(serialization.as_json)
       end
 
@@ -96,7 +96,7 @@ module V1
 
         page = (params[:page] || 1).to_i
         per_page = (params[:per_page] || PER_PAGE).to_i
-        users = User.order("created_at DESC").page(page).per(per_page)
+        users = User.order('created_at DESC').page(page).per(per_page)
 
         serialization = ActiveModel::Serializer::CollectionSerializer.new(users, each_serializer: UserSerializer, show_token: false)
 
